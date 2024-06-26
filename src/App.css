@@ -1,0 +1,62 @@
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+.App-header {
+  min-height: 20vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  color: white;
+}
+
+.App-header h1 {
+  font-size: 3rem;
+  color: red;
+}
+
+hr {
+  background-color: red;
+  height: 3px;
+}
+
+.App-body {
+  font-size: calc(10px + 2vmin);
+  height: auto;
+  color: #282c34;
+}
+
+.App-body p {
+  padding: 40px;
+}
+
+.App-body label {
+  display: block;
+  margin-top: 10px;
+}
+
+.App-body input {
+  margin-top: 5px;
+}
+
+.App-body button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #282c34;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.App-body button:hover {
+  background-color: #4CAF50;
+}
+
+.App-footer {
+  color: red;
+  padding: 10px;
+  width: 100%;
+  bottom: 0;
+  text-align: center;
+}
