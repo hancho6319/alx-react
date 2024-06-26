@@ -1,3 +1,4 @@
+// src/App.js
 import React from 'react';
 import './App.css';
 import holbertonLogo from './holberton-logo.png';
@@ -15,7 +16,6 @@ function App() {
         <p>Login to access the full dashboard</p>
         <label htmlFor="email">Email:</label>
         <input type="email" id="email" name="email" />
-        <br />
         <label htmlFor="password">Password:</label>
         <input type="password" id="password" name="password" />
         <br />
