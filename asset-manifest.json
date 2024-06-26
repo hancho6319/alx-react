@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/alx-react.git/static/css/main.0e3c3325.css",
+    "main.js": "/alx-react.git/static/js/main.686119f7.js",
+    "static/media/holberton-logo.png": "/alx-react.git/static/media/holberton-logo.24bab5d633e36ca8d17e.png",
+    "static/media/close-icon.png": "/alx-react.git/static/media/close-icon.8d1595a222f807bf6a2a.png",
+    "index.html": "/alx-react.git/index.html",
+    "main.0e3c3325.css.map": "/alx-react.git/static/css/main.0e3c3325.css.map",
+    "main.686119f7.js.map": "/alx-react.git/static/js/main.686119f7.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.0e3c3325.css",
+    "static/js/main.686119f7.js"
+  ]
+}
