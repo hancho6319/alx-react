@@ -1,23 +1,19 @@
 {
-  "name": "task_2",
+  "name": "task_1",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "webpack --mode production"
   },
-  "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "css-loader": "^7.1.2",
-    "file-loader": "^6.2.0",
-    "style-loader": "^4.0.0",
-    "webpack": "^5.92.1",
-    "webpack-cli": "^5.1.4"
+    "webpack": "^5.45.1",
+    "webpack-cli": "^4.7.2"
   },
   "dependencies": {
-    "jquery": "^3.7.1",
+    "jquery": "^3.6.0",
     "lodash": "^4.17.21"
   }
 }
