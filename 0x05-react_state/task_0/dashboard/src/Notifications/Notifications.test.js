@@ -3,18 +3,38 @@ import { shallow } from 'enzyme';
 import Notifications from './Notifications';
 
 describe('<Notifications />', () => {
-  it('should call handleDisplayDrawer when the menu item is clicked', () => {
-    const handleDisplayDrawer = jest.fn();
-    const wrapper = shallow(<Notifications handleDisplayDrawer={handleDisplayDrawer} />);
-    wrapper.find('.menuItem').simulate('click');
-    expect(handleDisplayDrawer).toHaveBeenCalled();
+  const listNotifications = [
+    { id: 1, type: 'default', value: 'New course available' },
+    { id: 2, type: 'urgent', value: 'New resume available' },
+    { id: 3, type: 'urgent', value: 'New data available' },
+  ];
+
+  it('should render correctly with default props', () => {
+    const wrapper = shallow(
+      <Notifications 
+        displayDrawer={false}
+        handleDisplayDrawer={() => {}}
+        handleHideDrawer={() => {}}
+        listNotifications={listNotifications}
+        markNotificationAsRead={() => {}}
+      />
+    );
+    expect(wrapper).toMatchSnapshot();
   });
 
-  it('should call handleHideDrawer when the close button is clicked', () => {
-    const handleHideDrawer = jest.fn();
-    const wrapper = shallow(<Notifications displayDrawer={true} handleHideDrawer={handleHideDrawer} />);
-    wrapper.find('button').simulate('click');
-    expect(handleHideDrawer).toHaveBeenCalled();
+  it('should call markNotificationAsRead when a notification is clicked', () => {
+    const markNotificationAsRead = jest.fn();
+    const wrapper = shallow(
+      <Notifications 
+        displayDrawer={true}
+        handleDisplayDrawer={() => {}}
+        handleHideDrawer={() => {}}
+        listNotifications={listNotifications}
+        markNotificationAsRead={markNotificationAsRead}
+      />
+    );
+    wrapper.find('NotificationItem').at(0).prop('markAsRead')();
+    expect(markNotificationAsRead).toHaveBeenCalledWith(1);
   });
 });
 

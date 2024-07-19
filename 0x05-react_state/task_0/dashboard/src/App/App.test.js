@@ -1,24 +1,42 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import App from './App';
+import { defaultUser } from './AppContext';
 
 describe('<App />', () => {
-  it('should have the initial state for displayDrawer set to false', () => {
+  it('should have the initial state with default user, logOut function, and listNotifications', () => {
     const wrapper = shallow(<App />);
-    expect(wrapper.state('displayDrawer')).toBe(false);
+    expect(wrapper.state('user')).toEqual(defaultUser);
+    expect(typeof wrapper.state('logOut')).toBe('function');
+    expect(wrapper.state('listNotifications')).toHaveLength(3);
   });
 
-  it('should set displayDrawer to true when handleDisplayDrawer is called', () => {
+  it('should log in the user correctly', () => {
     const wrapper = shallow(<App />);
-    wrapper.instance().handleDisplayDrawer();
-    expect(wrapper.state('displayDrawer')).toBe(true);
+    wrapper.instance().logIn('test@test.com', 'password');
+    expect(wrapper.state('user')).toEqual({
+      email: 'test@test.com',
+      password: 'password',
+      isLoggedIn: true,
+    });
   });
 
-  it('should set displayDrawer to false when handleHideDrawer is called', () => {
+  it('should log out the user correctly', () => {
     const wrapper = shallow(<App />);
-    wrapper.instance().handleDisplayDrawer();
-    wrapper.instance().handleHideDrawer();
-    expect(wrapper.state('displayDrawer')).toBe(false);
+    wrapper.instance().logIn('test@test.com', 'password');
+    wrapper.instance().logOut();
+    expect(wrapper.state('user')).toEqual(defaultUser);
+  });
+
+  it('should mark a notification as read correctly', () => {
+    const wrapper = shallow(<App />);
+    const instance = wrapper.instance();
+    instance.markNotificationAsRead(2);
+    expect(wrapper.state('listNotifications')).toHaveLength(2);
+    expect(wrapper.state('listNotifications')).toEqual([
+      { id: 1, type: 'default', value: 'New course available' },
+      { id: 3, type: 'urgent', value: 'New data available' },
+    ]);
   });
 });
 
