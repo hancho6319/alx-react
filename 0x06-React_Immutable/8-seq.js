@@ -1,6 +1,6 @@
 import { Seq } from 'immutable';
 
-function printBestStudents(grades) {
+function printBestStudents (grades) {
   const seq = Seq(grades);
 
   const bestStudents = seq
@@ -8,7 +8,7 @@ function printBestStudents(grades) {
     .map(student => ({
       ...student,
       firstName: student.firstName.charAt(0).toUpperCase() + student.firstName.slice(1),
-      lastName: student.lastName.charAt(0).toUpperCase() + student.lastName.slice(1),
+      lastName: student.lastName.charAt(0).toUpperCase() + student.lastName.slice(1)
     }));
 
   console.log(bestStudents.toJS());
@@ -19,18 +19,18 @@ const grades = {
   1: {
     score: 99,
     firstName: 'guillaume',
-    lastName: 'salva',
+    lastName: 'salva'
   },
   2: {
     score: 65,
     firstName: 'john',
-    lastName: 'doe',
+    lastName: 'doe'
   },
   3: {
     score: 80,
     firstName: 'jane',
-    lastName: 'doe',
-  },
+    lastName: 'doe'
+  }
 };
 
 printBestStudents(grades);

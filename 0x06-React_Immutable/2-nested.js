@@ -1,4 +1,4 @@
-export default function accessImmutableObject(object, array) {
+export default function accessImmutableObject (object, array) {
   let result = object;
   for (const key of array) {
     if (result[key] === undefined) {
@@ -12,8 +12,8 @@ export default function accessImmutableObject(object, array) {
 // Example usage:
 const data = {
   name: {
-    first: "Guillaume",
-    last: "Salva"
+    first: 'Guillaume',
+    last: 'Salva'
   }
 };
 
@@ -21,4 +21,3 @@ console.log(accessImmutableObject(data, ['name', 'first'])); // Should return "G
 console.log(accessImmutableObject(data, ['name', 'middle'])); // Should return undefined
 console.log(accessImmutableObject(data, ['name', 'last'])); // Should return "Salva"
 console.log(accessImmutableObject(data, ['age'])); // Should return undefined
-
